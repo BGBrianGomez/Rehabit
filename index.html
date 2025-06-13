@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rehábit - Regando nuevos hábitos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "cyan-light": "#7edfdf",
+              "cyan-dark": "#71cad8",
+              yellow: "#f2c549",
+              red: "#bc4749",
+              "gray-light": "#f6f7f9",
+              "gray-dark": "#212529",
+              green: "#52b788",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .gradient-bg {
+        background: linear-gradient(135deg, #7edfdf 0%, #71cad8 100%);
+      }
+      .dark .gradient-bg {
+        background: linear-gradient(135deg, #4a8a8a 0%, #5a9aa8 100%);
+      }
+      .fade-in {
+        animation: fadeIn 0.8s ease-in-out;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .logo-container {
+        width: 200px;
+        height: 60px;
+        background: url("./logo.png") no-repeat center;
+        background-size: contain;
+      }
+      .dark-mode-toggle {
+        transition: transform 0.3s ease;
+      }
+      .dark-mode-toggle:hover {
+        transform: scale(1.1);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-gray-light dark:bg-gray-900 min-h-screen transition-colors duration-300"
+  >
+    <!-- Header -->
+    <header
+      class="bg-white dark:bg-gray-800 shadow-sm w-full flex items-center justify-center transition-colors duration-300"
+    >
+      <div
+        class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between w-full"
+      >
+        <div class="logo-container"></div>
+
+        <!-- Dark Mode Toggle -->
+        <button
+          id="darkModeToggle"
+          class="dark-mode-toggle p-2 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-all duration-300"
+          aria-label="Cambiar modo oscuro"
+        >
+          <!-- Sun Icon (shown in dark mode) -->
+          <svg
+            id="sunIcon"
+            class="w-6 h-6 text-yellow-500 hidden dark:block"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+              clip-rule="evenodd"
+            />
+          </svg>
+
+          <!-- Moon Icon (shown in light mode) -->
+          <svg
+            id="moonIcon"
+            class="w-6 h-6 text-gray-600 block dark:hidden"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path
+              d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+            />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg py-20">
+      <div class="max-w-4xl mx-auto text-center px-4 fade-in">
+        <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">
+          Regando nuevos hábitos
+        </h1>
+        <p
+          class="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed"
+        >
+          La forma más simple de incorporar hábitos saludables y productivos en
+          tu vida cotidiana
+        </p>
+        <button
+          class="bg-green hover:bg-green/90 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
+        >
+          Comenzar ahora
+        </button>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section
+      class="py-20 bg-white dark:bg-gray-800 transition-colors duration-300"
+    >
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2
+            class="text-3xl md:text-4xl font-bold text-gray-dark dark:text-white mb-4 transition-colors duration-300"
+          >
+            ¿Por qué Rehábit?
+          </h2>
+          <p
+            class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto transition-colors duration-300"
+          >
+            Sabemos que quieres cambiar, pero la rutina y la falta de tiempo lo
+            hacen difícil. Te ayudamos a superar esas barreras.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div
+            class="text-center p-8 rounded-2xl bg-gray-light dark:bg-gray-700 hover:shadow-lg dark:hover:shadow-xl transition-all duration-300"
+          >
+            <div
+              class="w-16 h-16 bg-cyan-light dark:bg-cyan-dark rounded-full flex items-center justify-center mx-auto mb-6 transition-colors duration-300"
+            >
+              <svg
+                class="w-8 h-8 text-white"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3
+              class="text-xl font-semibold text-gray-dark dark:text-white mb-4 transition-colors duration-300"
+            >
+              Simple y rápido
+            </h3>
+            <p
+              class="text-gray-600 dark:text-gray-300 transition-colors duration-300"
+            >
+              Selecciona un hábito y te guiamos paso a paso para incorporarlo de
+              forma sostenible.
+            </p>
+          </div>
+
+          <div
+            class="text-center p-8 rounded-2xl bg-gray-light dark:bg-gray-700 hover:shadow-lg dark:hover:shadow-xl transition-all duration-300"
+          >
+            <div
+              class="w-16 h-16 bg-yellow dark:bg-yellow/80 rounded-full flex items-center justify-center mx-auto mb-6 transition-colors duration-300"
+            >
+              <svg
+                class="w-8 h-8 text-white"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"
+                />
+              </svg>
+            </div>
+            <h3
+              class="text-xl font-semibold text-gray-dark dark:text-white mb-4 transition-colors duration-300"
+            >
+              Personalizado
+            </h3>
+            <p
+              class="text-gray-600 dark:text-gray-300 transition-colors duration-300"
+            >
+              Se adapta a tu tiempo disponible y a la forma más efectiva para
+              ti.
+            </p>
+          </div>
+
+          <div
+            class="text-center p-8 rounded-2xl bg-gray-light dark:bg-gray-700 hover:shadow-lg dark:hover:shadow-xl transition-all duration-300"
+          >
+            <div
+              class="w-16 h-16 bg-green dark:bg-green/80 rounded-full flex items-center justify-center mx-auto mb-6 transition-colors duration-300"
+            >
+              <svg
+                class="w-8 h-8 text-white"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012-2v-1a2 2 0 012-2h1.945M11 6.5V15l-3.5-3.5L4 15V6.5z"
+                />
+              </svg>
+            </div>
+            <h3
+              class="text-xl font-semibold text-gray-dark dark:text-white mb-4 transition-colors duration-300"
+            >
+              Resultados reales
+            </h3>
+            <p
+              class="text-gray-600 dark:text-gray-300 transition-colors duration-300"
+            >
+              Te acompañamos hacia una vida más equilibrada y satisfactoria.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Habits Section -->
+    <section
+      class="py-20 bg-gray-light dark:bg-gray-900 transition-colors duration-300"
+    >
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2
+          class="text-3xl md:text-4xl font-bold text-gray-dark dark:text-white mb-8 transition-colors duration-300"
+        >
+          Hábitos que puedes incorporar
+        </h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+          <div
+            class="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-sm hover:shadow-md dark:hover:shadow-xl transition-all duration-300"
+          >
+            <span class="text-2xl mb-2 block">💧</span>
+            <p
+              class="text-sm font-medium text-gray-dark dark:text-white transition-colors duration-300"
+            >
+              Tomar más agua
+            </p>
+          </div>
+          <div
+            class="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-sm hover:shadow-md dark:hover:shadow-xl transition-all duration-300"
+          >
+            <span class="text-2xl mb-2 block">📚</span>
+            <p
+              class="text-sm font-medium text-gray-dark dark:text-white transition-colors duration-300"
+            >
+              Leer diariamente
+            </p>
+          </div>
+          <div
+            class="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-sm hover:shadow-md dark:hover:shadow-xl transition-all duration-300"
+          >
+            <span class="text-2xl mb-2 block">🏃‍♂️</span>
+            <p
+              class="text-sm font-medium text-gray-dark dark:text-white transition-colors duration-300"
+            >
+              Hacer ejercicio
+            </p>
+          </div>
+          <div
+            class="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-sm hover:shadow-md dark:hover:shadow-xl transition-all duration-300"
+          >
+            <span class="text-2xl mb-2 block">🥗</span>
+            <p
+              class="text-sm font-medium text-gray-dark dark:text-white transition-colors duration-300"
+            >
+              Comer mejor
+            </p>
+          </div>
+          <div
+            class="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-sm hover:shadow-md dark:hover:shadow-xl transition-all duration-300"
+          >
+            <span class="text-2xl mb-2 block">🌱</span>
+            <p
+              class="text-sm font-medium text-gray-dark dark:text-white transition-colors duration-300"
+            >
+              Regar plantas
+            </p>
+          </div>
+          <div
+            class="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-sm hover:shadow-md dark:hover:shadow-xl transition-all duration-300"
+          >
+            <span class="text-2xl mb-2 block">🗣️</span>
+            <p
+              class="text-sm font-medium text-gray-dark dark:text-white transition-colors duration-300"
+            >
+              Aprender idiomas
+            </p>
+          </div>
+          <div
+            class="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-sm hover:shadow-md dark:hover:shadow-xl transition-all duration-300"
+          >
+            <span class="text-2xl mb-2 block">🧘‍♀️</span>
+            <p
+              class="text-sm font-medium text-gray-dark dark:text-white transition-colors duration-300"
+            >
+              Meditar
+            </p>
+          </div>
+          <div
+            class="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-sm hover:shadow-md dark:hover:shadow-xl transition-all duration-300"
+          >
+            <span class="text-2xl mb-2 block">📖</span>
+            <p
+              class="text-sm font-medium text-gray-dark dark:text-white transition-colors duration-300"
+            >
+              Estudiar
+            </p>
+          </div>
+        </div>
+        <p
+          class="text-gray-600 dark:text-gray-300 text-lg transition-colors duration-300"
+        >
+          Y muchos más hábitos que te ayudarán a vivir mejor
+        </p>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section
+      class="py-20 bg-white dark:bg-gray-800 transition-colors duration-300"
+    >
+      <div class="max-w-4xl mx-auto text-center px-4">
+        <h2
+          class="text-3xl md:text-4xl font-bold text-gray-dark dark:text-white mb-6 transition-colors duration-300"
+        >
+          ¿Listo para cambiar tu vida?
+        </h2>
+        <p
+          class="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto transition-colors duration-300"
+        >
+          Deja de postergar. Comienza hoy a construir los hábitos que siempre
+          quisiste tener.
+        </p>
+        <button
+          class="bg-red hover:bg-red/90 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
+        >
+          Empezar mi transformación
+        </button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+      class="bg-gray-dark dark:bg-black py-12 transition-colors duration-300"
+    >
+      <div class="max-w-6xl mx-auto px-4 text-center">
+        <div class="logo-container mx-auto mb-6 opacity-60"></div>
+        <p
+          class="text-gray-400 dark:text-gray-500 mb-4 transition-colors duration-300"
+        >
+          Proyecto de Eve, Val, Brian y Cris
+        </p>
+        <p
+          class="text-gray-500 dark:text-gray-600 text-sm transition-colors duration-300"
+        >
+          © 2025 Rehábit. Regando nuevos hábitos, cultivando mejores vidas.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Dark mode functionality
+      function initDarkMode() {
+        const darkModeToggle = document.getElementById("darkModeToggle");
+        const html = document.documentElement;
+
+        // Check for saved theme preference or default to light mode
+        const savedTheme = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+
+        if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+          html.classList.add("dark");
+        }
+
+        darkModeToggle.addEventListener("click", function () {
+          html.classList.toggle("dark");
+
+          // Save preference
+          if (html.classList.contains("dark")) {
+            localStorage.setItem("theme", "dark");
+          } else {
+            localStorage.setItem("theme", "light");
+          }
+        });
+      }
+
+      // Original functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initialize dark mode
+        initDarkMode();
+
+        const buttons = document.querySelectorAll(
+          "button:not(#darkModeToggle)"
+        );
+
+        buttons.forEach((button) => {
+          button.addEventListener("click", function () {
+            // Placeholder for future functionality
+            console.log("Button clicked - Ready for MVP functionality");
+
+            // Simple feedback
+            const originalText = this.textContent;
+            this.textContent = "¡Pronto disponible!";
+            this.disabled = true;
+
+            setTimeout(() => {
+              this.textContent = originalText;
+              this.disabled = false;
+            }, 2000);
+          });
+        });
+
+        // Add scroll animations
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = "1";
+              entry.target.style.transform = "translateY(0)";
+            }
+          });
+        });
+
+        document.querySelectorAll("section").forEach((section) => {
+          section.style.opacity = "0";
+          section.style.transform = "translateY(20px)";
+          section.style.transition = "all 0.6s ease-in-out";
+          observer.observe(section);
+        });
+      });
+    </script>
+  </body>
+</html>
